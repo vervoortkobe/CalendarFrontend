@@ -4,23 +4,26 @@
       <h2>Calendar</h2>
       <div class="sidebarleft_center_grid">
         <div>
-          <p class="dayname">DAGNAAM</p>
-          <p class="date">DATUM</p>
+          <p class="dayname">{{capitalize(calcDayName(todayDate))}}</p>
+          <p class="date">{{todayDate}}/{{countThisMonthNumber}}/{{thisYear}}</p>
         </div>
         <div class="time" id="time">
-          <p id="hours">UREN</p>
+          <p id="hours">{{hours}}</p>
           <hr>
-          <p id="minutes">MINUTEN</p>
+          <p id="minutes">{{minutes}}</p>
           <hr>
-          <p id="seconds">SECONDEN</p>
+          <p id="seconds">{{seconds}}</p>
         </div>
       </div>
     </div>
   </div>
   <div class="center">
     <div class="month">
-      <h2 id="monthname">MAAND</h2>
-      <ul id="daysul"></ul>
+      <h2 id="monthname">{{thisMonthName}}</h2>
+      <ul id="daysul" *ngFor="let day of calendar">
+        <li *ngIf="day.today" id="{{day.year}}-{{day.month}}_{{day.date}}" class="in today {{day.date}}"><a>{{day.day}}</a></li>
+        <li *ngIf="!day.today" id="{{day.year}}-{{day.month}}_{{day.date}}" class="in {{day.day}}"><a>{{day.date}}</a></li>
+      </ul>
     </div>
   </div>
   <div class="sidebarright"></div>
