@@ -1,0 +1,11 @@
+<div class="center">
+  <div class="month">
+    <h2 id="monthname">{{thisMonthName}}</h2>
+    <ul id="daysul">
+      <ng-container *ngFor="let day of calendar">
+        <li *ngIf="day.today" id="{{day.year}}-{{day.month}}_{{day.date}}" class="in today {{day.date}}"><a>{{day.date}}</a></li>
+        <li *ngIf="!day.today" id="{{day.year}}-{{day.month}}_{{day.date}}" class="in {{day.day}}"><a>{{day.date}}</a></li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

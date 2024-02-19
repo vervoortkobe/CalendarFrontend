@@ -8,13 +8,19 @@ import { FormsModule } from '@angular/forms';
 import { CalendarComponent } from './calendar/calendar.component';
 import { EditAppointmentComponent } from './edit-appointment/edit-appointment.component';
 import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
+import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
+import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
+import { MainCenterComponent } from './main-center/main-center.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
     EditAppointmentComponent,
-    NewAppointmentComponent
+    NewAppointmentComponent,
+    SidebarLeftComponent,
+    SidebarRightComponent,
+    MainCenterComponent
   ],
   imports: [
     BrowserModule,

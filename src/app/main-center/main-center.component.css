@@ -1,0 +1,78 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center .month {
+  border: 2px solid black;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw;
+}
+
+.center .month h2 {
+  padding-bottom: 2vw;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: black;
+}
+
+.center .month ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.center .month ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 20px;
+  cursor: pointer;
+  color: black;
+  font-size: 2rem;
+  user-select: none;
+  background-color: #e4f0ff;
+  border: 3px solid #aad3ff;
+}
+
+.center .month ul .zaterdag,
+.center .month ul .zondag {
+  background-color: salmon;
+  border: 3px solid red;
+}
+
+.center .month ul .in:hover {
+  /*transform: scale(.99);*/
+  transition-duration: .1s;
+  border: 2px solid white;
+}
+
+.center .month ul li a {
+  /*margin: auto;*/
+  padding: 0;
+}
+
+.center .month ul .today {
+  background-color: #219fdf;
+  border: 3px solid #0075b9;
+}
+
+.center .month ul .today a {
+  color: white;
+  font-weight: bold;
+}
+
+.center .month ul .out {
+  border: 3px solid grey;
+  background-color: darkgrey;
+  cursor: default;
+}
