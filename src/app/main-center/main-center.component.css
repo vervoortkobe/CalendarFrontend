@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  /*margin-top: 4vh;
+  margin-bottom: 4vh;*/
 }
 
 .center .month {
@@ -50,14 +53,15 @@
   border: 3px solid red;
 }
 
+.center .month ul .in {
+  transition: ease-in-out .15s;
+}
+
 .center .month ul .in:hover {
-  /*transform: scale(.99);*/
-  transition-duration: .1s;
   border: 2px solid white;
 }
 
 .center .month ul li a {
-  /*margin: auto;*/
   padding: 0;
 }
 

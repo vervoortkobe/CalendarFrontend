@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-main-center',
@@ -34,30 +35,29 @@ export class MainCenterComponent {
   //#endregion
 
   //#region Variables
-  todayDate = new Date().getDate();
-  thisYear = new Date().getFullYear();
-  daysInThisMonth: any = [];
-  daysOutThisMonthBefore = '';
-  daysOutThisMonthAfter = '';
-  countThisMonthNumber = new Date().getMonth() + 1;
-  amountDaysInThisMonth = new Date(
-    new Date().getFullYear(),
-    this.countThisMonthNumber,
-    0
-  ).getDate();
-  thisMonthName = this.months[this.countThisMonthNumber];
-  firstDayOfThisMonthName =
-    this.weekdays[
-      new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay()
-    ];
-  calendar = this.daysInThisMonth; //this.daysOutThisMonthBefore + this.daysInThisMonth + this.daysOutThisMonthAfter;
+  today = new Date();
+  todayDate = this.today.getDate();
+  thisMonth = this.today.getMonth();
+  thisYear = this.today.getFullYear();
+  thisMonthNr = this.today.getMonth() + 1;
+  calendar: any = [];
+  daysOutThisMonthBefore: any = [];
+  daysOutThisMonthAfter: any = [];
+  daysInThisMonth = new Date(this.today.getFullYear(), this.thisMonthNr, 0).getDate();
+  thisMonthName = this.months[this.thisMonthNr];
+  firstDayOfThisMonthName = this.weekdays[new Date(this.today.getFullYear(), this.today.getMonth(), 1).getDay()];
   //#endregion
 
   //#region Constructor
-  constructor() {
-    for (let i = 0; i < this.amountDaysInThisMonth; i++) {
+  constructor() {}
+  //#endregion
+
+  //#region Init
+  ngOnInit(): void {
+
+    for (let i = 0; i < this.daysInThisMonth; i++) {
       if (i + 1 == this.todayDate)
-        this.daysInThisMonth.push({
+        this.calendar.push({
           today: true,
           year: this.thisYear,
           month: this.thisMonthName,
@@ -65,7 +65,7 @@ export class MainCenterComponent {
           day: this.calcDayName(this.todayDate),
         });
       else
-        this.daysInThisMonth.push({
+        this.calendar.push({
           today: false,
           year: this.thisYear,
           month: this.thisMonthName,
@@ -78,10 +78,10 @@ export class MainCenterComponent {
       // if zondag 0 | 0 + 1 -> 7 - 1 = 6 dagen toevoegen van voor, 1 dag van achter
       if (this.weekdays[i] === this.firstDayOfThisMonthName) {
         for (let j = 0; j < 7 - (i + 1); j++)
-          this.daysOutThisMonthBefore += `<li class="out"<a></a></li>`;
-
+          this.daysOutThisMonthBefore.push({});
+    
         for (let k = 0; k < i + 6 - i; k++)
-          this.daysOutThisMonthAfter += `<li class="out"><a></a></li>`;
+          this.daysOutThisMonthAfter.push({});
       }
     }
   }
@@ -91,8 +91,8 @@ export class MainCenterComponent {
   calcDayName(countDayInMonth: number) {
     return this.weekdays[
       new Date(
-        new Date().getFullYear(),
-        new Date().getMonth(),
+        this.thisYear,
+        this.thisMonth,
         countDayInMonth
       ).getDay()
     ].toLowerCase();
