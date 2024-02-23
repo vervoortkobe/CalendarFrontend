@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { Appointment } from '../types';
+import { Appointment } from '../../types';
 
 @Injectable({
   providedIn: 'root'

@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CalendarComponent } from './calendar/calendar.component';
-import { EditAppointmentComponent } from './edit-appointment/edit-appointment.component';
-import { NewAppointmentComponent } from './new-appointment/new-appointment.component';
-import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
-import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
-import { MainCenterComponent } from './main-center/main-center.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { EditAppointmentComponent } from './components/edit-appointment/edit-appointment.component';
+import { NewAppointmentComponent } from './components/new-appointment/new-appointment.component';
+import { SidebarLeftComponent } from './components/sidebar-left/sidebar-left.component';
+import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
+import { MainCenterComponent } from './components/main-center/main-center.component';
+import { PopupHostDirective } from './directives/popup-host.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MainCenterComponent } from './main-center/main-center.component';
     NewAppointmentComponent,
     SidebarLeftComponent,
     SidebarRightComponent,
-    MainCenterComponent
+    MainCenterComponent,
+    PopupHostDirective
   ],
   imports: [
     BrowserModule,
