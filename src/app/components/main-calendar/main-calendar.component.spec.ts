@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainCalendarComponent } from './main-calendar.component';
 
-describe('CalendarComponent', () => {
+describe('MainCalendarComponent', () => {
   let component: MainCalendarComponent;
   let fixture: ComponentFixture<MainCalendarComponent>;
 

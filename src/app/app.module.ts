@@ -10,7 +10,7 @@ import { EditAppointmentComponent } from './components/edit-appointment/edit-app
 import { NewAppointmentComponent } from './components/new-appointment/new-appointment.component';
 import { SidebarLeftComponent } from './components/sidebar-left/sidebar-left.component';
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
-import { MainCenterComponent } from './components/main-center/main-center.component';
+import { CenterComponent } from './components/center/center.component';
 import { PopupHostDirective } from './directives/popup-host.directive';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { PopupHostDirective } from './directives/popup-host.directive';
     NewAppointmentComponent,
     SidebarLeftComponent,
     SidebarRightComponent,
-    MainCenterComponent,
+    CenterComponent,
     PopupHostDirective
   ],
   imports: [

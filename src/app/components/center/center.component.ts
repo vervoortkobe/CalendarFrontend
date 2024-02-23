@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { concat } from 'rxjs';
 
 @Component({
-  selector: 'app-main-center',
-  templateUrl: './main-center.component.html',
-  styleUrl: './main-center.component.css',
+  selector: 'app-center',
+  templateUrl: './center.component.html',
+  styleUrl: './center.component.css',
 })
-export class MainCenterComponent {
+export class CenterComponent {
   //#region Arrays
   weekdays = [
     'zondag',
