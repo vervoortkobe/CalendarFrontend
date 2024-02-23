@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CalendarComponent } from './components/calendar/calendar.component';
+import { MainCalendarComponent } from './components/main-calendar/main-calendar.component';
 import { EditAppointmentComponent } from './components/edit-appointment/edit-appointment.component';
 import { NewAppointmentComponent } from './components/new-appointment/new-appointment.component';
 import { SidebarLeftComponent } from './components/sidebar-left/sidebar-left.component';
@@ -16,7 +16,7 @@ import { PopupHostDirective } from './directives/popup-host.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarComponent,
+    MainCalendarComponent,
     EditAppointmentComponent,
     NewAppointmentComponent,
     SidebarLeftComponent,
