@@ -45,7 +45,7 @@ export class MainCenterComponent {
   daysOutThisMonthAfter: any = [];
   daysInThisMonth = new Date(this.today.getFullYear(), this.thisMonthNr, 0).getDate();
   thisMonthName = this.months[this.thisMonthNr];
-  firstDayOfThisMonthName = this.weekdays[new Date(this.today.getFullYear(), this.today.getMonth(), 1).getDay()];
+  firstDayOfThisMonthName = this.weekdays[new Date(this.today.getFullYear(), this.thisMonthNr, 1).getDay()];
   //#endregion
 
   //#region Constructor
@@ -77,10 +77,10 @@ export class MainCenterComponent {
     for (let i = 0; i < this.weekdays.length; i++) {
       // if zondag 0 | 0 + 1 -> 7 - 1 = 6 dagen toevoegen van voor, 1 dag van achter
       if (this.weekdays[i] === this.firstDayOfThisMonthName) {
-        for (let j = 0; j < 7 - (i + 1); j++)
+        for (let j = 0; j <= 7 - (i - 1); j++)
           this.daysOutThisMonthBefore.push({});
     
-        for (let k = 0; k < i + 6 - i; k++)
+        for (let k = 0; k <= 42 - this.daysInThisMonth - this.daysOutThisMonthBefore.length - 1; k++)
           this.daysOutThisMonthAfter.push({});
       }
     }
@@ -92,7 +92,7 @@ export class MainCenterComponent {
     return this.weekdays[
       new Date(
         this.thisYear,
-        this.thisMonth,
+        this.thisMonthNr,
         countDayInMonth
       ).getDay()
     ].toLowerCase();
