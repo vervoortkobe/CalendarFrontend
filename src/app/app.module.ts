@@ -11,7 +11,6 @@ import { NewAppointmentComponent } from './components/new-appointment/new-appoin
 import { SidebarLeftComponent } from './components/sidebar-left/sidebar-left.component';
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
 import { CenterComponent } from './components/center/center.component';
-import { PopupHostDirective } from './directives/popup-host.directive';
 
 @NgModule({
   declarations: [
@@ -22,15 +21,9 @@ import { PopupHostDirective } from './directives/popup-host.directive';
     SidebarLeftComponent,
     SidebarRightComponent,
     CenterComponent,
-    PopupHostDirective
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

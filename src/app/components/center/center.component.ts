@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-center',
@@ -42,9 +42,16 @@ export class CenterComponent {
   calendar: any = [];
   daysOutThisMonthBefore: any = [];
   daysOutThisMonthAfter: any = [];
-  daysInThisMonth = new Date(this.today.getFullYear(), this.thisMonthNr, 0).getDate();
-  thisMonthName = this.months[this.thisMonthNr];
-  firstDayOfThisMonthName = this.weekdays[new Date(this.today.getFullYear(), this.thisMonthNr, 1).getDay()];
+  daysInThisMonth = new Date(
+    this.today.getFullYear(),
+    this.thisMonthNr,
+    0
+  ).getDate();
+  thisMonthName = this.months[this.thisMonthNr - 1];
+  firstDayOfThisMonthName =
+    this.weekdays[
+      new Date(this.today.getFullYear(), this.thisMonthNr, 1).getDay()
+    ];
   //#endregion
 
   //#region Constructor
@@ -53,7 +60,6 @@ export class CenterComponent {
 
   //#region Init
   ngOnInit(): void {
-
     for (let i = 0; i < this.daysInThisMonth; i++) {
       if (i + 1 == this.todayDate)
         this.calendar.push({
@@ -78,8 +84,13 @@ export class CenterComponent {
       if (this.weekdays[i] === this.firstDayOfThisMonthName) {
         for (let j = 0; j <= 7 - (i - 1); j++)
           this.daysOutThisMonthBefore.push({});
-    
-        for (let k = 0; k <= 42 - this.daysInThisMonth - this.daysOutThisMonthBefore.length - 1; k++)
+
+        for (
+          let k = 0;
+          k <=
+          42 - this.daysInThisMonth - this.daysOutThisMonthBefore.length - 1;
+          k++
+        )
           this.daysOutThisMonthAfter.push({});
       }
     }
@@ -89,11 +100,7 @@ export class CenterComponent {
   //#region Methods
   calcDayName(countDayInMonth: number) {
     return this.weekdays[
-      new Date(
-        this.thisYear,
-        this.thisMonthNr,
-        countDayInMonth
-      ).getDay()
+      new Date(this.thisYear, this.thisMonthNr, countDayInMonth).getDay()
     ].toLowerCase();
   }
   //#endregion
